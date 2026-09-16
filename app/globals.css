@@ -1,8 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+/*
+ * Design tokens (DESIGN.md). Declared in @theme so each token is both a CSS
+ * variable and a Tailwind utility: bg-bg, bg-surface, text-muted, border-line,
+ * py-section, gap-block, px-gutter, rounded, ease-soft, font-heading, font-body.
+ * Tailwind's default color palette is cleared so only brand colors exist.
+ */
+@theme {
+  --color-*: initial;
   --color-bg:      #F5F1EA;
   --color-surface: #FBF8F3;
   --color-text:    #2A2521;
@@ -11,43 +16,106 @@
   --color-accent:  #4A5D43;
   --color-line:    #E0D8CC;
 
-  /* Typography */
-  --font-heading: 'Fraunces', serif;
-  --font-body:    'Satoshi', sans-serif;
-
   /* Spacing scale */
-  --space-section: clamp(100px, 12vw, 160px);
-  --space-block:   clamp(40px, 6vw, 80px);
+  --spacing-section: clamp(100px, 12vw, 160px);
+  --spacing-block:   clamp(40px, 6vw, 80px);
+  --spacing-gutter:  clamp(20px, 4vw, 48px);  /* page side padding */
 
-  /* Radius & border */
+  /* Radius */
   --radius: 3px;
+
+  /* Easing for CSS transitions (same curve as easeOut in lib/motion.ts) */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout: navbar with a truly centered brand (grid-cols-nav) */
+  --grid-template-columns-nav: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+/* Typography: next/font variables from lib/fonts.ts */
+@theme inline {
+  --font-heading: var(--font-fraunces);
+  --font-body:    var(--font-satoshi);
+
+  /* Layout heights driven by runtime variables (h-header, top-header, h-hero, h-hero-track) */
+  --spacing-header:     var(--header-height);
+  --spacing-hero:       var(--hero-height);
+  /* Hero height plus about one screen of pinned scroll per extra image set; Hero sets --hero-sets. */
+  --spacing-hero-track: calc(var(--hero-height) + var(--header-height) + (var(--hero-sets, 2) - 1) * 100svh);
+}
+
+:root {
   --border: 1px solid var(--color-line);
+  --header-height: 4rem;
+  --hero-height: clamp(28rem, 72svh, 50rem);
 }
 
-/* Base */
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
+@media (width >= 48rem) {
+  :root { --header-height: 5rem; }
 }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  line-height: 1.1;
-  font-weight: 500;
+/* Base (layered so utilities can override it) */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height); /* anchors land below the sticky navbar */
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    font-weight: 500;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.03;
-  z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Horizontal scrollers that rely on swipe/snap instead of a visible scrollbar. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* A <select> still on its empty placeholder option (styled like input placeholders). */
+@custom-variant unselected (&:has(option[value=""]:checked));
+
+/* Animated underline for text links (DESIGN.md → Motion → Hover).
+   Grows on hover/focus of the element itself or of a parent with class "group". */
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.6s var(--ease-soft);
+
+  &:hover,
+  &:focus-visible,
+  :where(.group):hover &,
+  :where(.group):focus-visible & {
+    background-size: 100% 1px;
+  }
 }

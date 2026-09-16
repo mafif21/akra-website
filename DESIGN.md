@@ -3,9 +3,9 @@ Warm, natural, editorial-craft. Evokes wood, linen fabric, warm light.
 Reference feel: premium furniture brands (e.g. Fritz Hansen, Karimoku, Herman Miller — the warm side of them).
 
 ## Typography
-- Heading: [Fraunces / Instrument Serif ← REPLACE]
-- Body: [Satoshi / General Sans ← REPLACE]
-- Self-host fonts in public/fonts/. DO NOT use Inter/Roboto.
+- Heading: Fraunces (variable, 100–900) → `font-heading` / `--font-heading`
+- Body: Satoshi (variable, 300–900) → `font-body` / `--font-body`
+- Self-host fonts in public/fonts/ (loaded via next/font/local in lib/fonts.ts). DO NOT use Inter/Roboto.
 - Scale: headings large & airy, body 16–18px, generous line-height (1.6+).
 
 ## Color Palette ← REPLACE hex to match brand

@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "siteName": "Akra",
+    "title": "Akra | Custom Furniture Made to Order, Shipped Worldwide",
+    "titleTemplate": "%s | Akra",
+    "description": "Furniture crafted to your design, materials, and finish. From a single piece to full containers, shipped worldwide for importers, designers, and homes.",
+    "ogImageAlt": "Handcrafted wooden furniture by Akra in warm natural light"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Akar Karya, the roots of craft. Born from one person's determination to build a furniture company from the ground up, every piece is made to order and crafted by hand by local Indonesian artisans. More than furniture — it's a way to bring artisanry into your home while growing our local economy.",
+    "purposeTitle": "Our Purpose",
+    "purpose": "We want to raise the standard of Indonesian furniture: better quality, at prices that stay fair and competitive in their class. Like roots that grow and bloom outward, we hope to reach homes all around the world.",
+    "showcaseAlt": "Handcrafted wooden armchair with a woven rattan seat and back, beside a potted plant",
+    "photoAlt": "Person relaxing with a book in a wood-framed lounge chair with linen cushions"
+  },
+  "hero": {
+    "title": "Custom furniture, crafted to order and shipped worldwide",
+    "viewProduct": "View {name}",
+    "items": {
+      "cafeChair": {
+        "name": "Cafe Chair",
+        "alt": "Solid wood cafe chair with a curved backrest against a warm cream wall"
+      },
+      "loungeChair": {
+        "name": "Lounge Chair",
+        "alt": "Low lounge chair with a dark wood frame and linen cushions"
+      },
+      "diningTable": {
+        "name": "Dining Table",
+        "alt": "Wooden dining table with tapered legs and a ceramic vase of branches"
+      },
+      "barStool": {
+        "name": "Bar Stool",
+        "alt": "Tall wooden bar stool with a round seat and footrest ring"
+      },
+      "sideboard": {
+        "name": "Sideboard",
+        "alt": "Walnut sideboard with four doors below a framed print"
+      },
+      "bench": {
+        "name": "Bench",
+        "alt": "Light wood bench with a folded linen throw in soft window light"
+      }
+    }
+  },
+  "navbar": {
+    "brand": "AKRA",
+    "homeLabel": "Akra, back to home",
+    "customOrder": "Custom Order",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navLabel": "Main",
+    "links": {
+      "home": "Home",
+      "products": "Products",
+      "custom": "Custom",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "customOrder": {
+    "eyebrow": "Custom order",
+    "title": "Tell us what you'd like made",
+    "description": "Share a few details and we'll continue the conversation on WhatsApp, whether it's a single piece or a full container.",
+    "close": "Close",
+    "optional": "Optional",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your full name"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "e.g. Netherlands"
+      },
+      "product": {
+        "label": "Product type",
+        "placeholder": "Choose a product type",
+        "options": {
+          "dining": "Dining tables & chairs",
+          "seating": "Sofas & lounge chairs",
+          "bedroom": "Beds & bedroom",
+          "storage": "Cabinets & storage",
+          "outdoor": "Outdoor furniture",
+          "other": "Something else"
+        }
+      },
+      "orderSize": {
+        "label": "Order size",
+        "placeholder": "Choose an order size",
+        "options": {
+          "retail": "Retail: one or a few pieces",
+          "batch": "Small batch: up to 50 pieces",
+          "wholesale": "Wholesale: full container"
+        }
+      },
+      "details": {
+        "label": "Details",
+        "placeholder": "Design, materials, dimensions, or finish"
+      }
+    },
+    "submit": "Continue on WhatsApp",
+    "note": "WhatsApp opens in a new tab with your message ready to send.",
+    "whatsapp": {
+      "intro": "Hello, I'm {name} from {country}. I'd like to place a custom order.",
+      "product": "Product: {value}",
+      "orderSize": "Order size: {value}",
+      "details": "Details: {value}"
+    }
+  }
+}

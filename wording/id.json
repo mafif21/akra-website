@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "siteName": "Akra",
+    "title": "Akra | Furnitur Custom Sesuai Pesanan, Dikirim ke Seluruh Dunia",
+    "titleTemplate": "%s | Akra",
+    "description": "Furnitur yang dibuat sesuai desain, material, dan finishing pilihan Anda. Dari satu unit hingga kontainer penuh, dikirim ke seluruh dunia untuk importir, desainer, dan hunian.",
+    "ogImageAlt": "Furnitur kayu buatan tangan Akra dalam cahaya alami yang hangat"
+  },
+  "a11y": {
+    "skipToContent": "Langsung ke konten"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "description": "AKRA adalah singkatan dari Akar Karya, “akar dari sebuah karya.” Semuanya berawal dari tekad satu orang untuk membangun perusahaan furnitur dari nol, tanpa privilese warisan dan tanpa bisnis keluarga sebagai sandaran. Setiap produk dibuat sesuai pesanan dan sepenuhnya bisa disesuaikan, jadi desain apa pun yang Anda bayangkan akan kami sambut. Semuanya dikerjakan oleh perajin lokal Indonesia, sebagian besar dengan tangan. Bagi kami, ini lebih dari sekadar furnitur: ini cara untuk mendekatkan karya perajin kepada Anda, sekaligus ikut menumbuhkan ekonomi lokal.",
+    "purposeTitle": "Tujuan Kami",
+    "purpose": "Kami ingin mengangkat standar furnitur Indonesia: kualitas yang lebih baik, dengan harga yang tetap adil dan bersaing di kelasnya. Seperti akar yang tumbuh dan mekar ke segala arah, kami berharap bisa menjangkau rumah-rumah di seluruh dunia.",
+    "showcaseAlt": "Kursi kayu buatan tangan dengan dudukan dan sandaran rotan anyam, di samping tanaman dalam pot",
+    "photoAlt": "Seseorang bersantai membaca buku di kursi santai berangka kayu dengan bantalan linen"
+  },
+  "hero": {
+    "title": "Furnitur custom, dibuat sesuai pesanan dan dikirim ke seluruh dunia",
+    "viewProduct": "Lihat {name}",
+    "items": {
+      "cafeChair": {
+        "name": "Kursi Kafe",
+        "alt": "Kursi kafe kayu solid dengan sandaran melengkung di depan dinding krem yang hangat"
+      },
+      "loungeChair": {
+        "name": "Kursi Santai",
+        "alt": "Kursi santai rendah berangka kayu gelap dengan bantalan linen"
+      },
+      "diningTable": {
+        "name": "Meja Makan",
+        "alt": "Meja makan kayu berkaki runcing dengan vas keramik berisi ranting"
+      },
+      "barStool": {
+        "name": "Kursi Bar",
+        "alt": "Kursi bar kayu tinggi dengan dudukan bulat dan cincin pijakan kaki"
+      },
+      "sideboard": {
+        "name": "Bufet",
+        "alt": "Bufet kayu walnut empat pintu di bawah bingkai lukisan"
+      },
+      "bench": {
+        "name": "Bangku",
+        "alt": "Bangku kayu terang dengan kain linen terlipat dalam cahaya jendela yang lembut"
+      }
+    }
+  },
+  "navbar": {
+    "brand": "AKRA",
+    "homeLabel": "Akra, kembali ke beranda",
+    "customOrder": "Pesan Custom",
+    "menu": "Menu",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu",
+    "navLabel": "Utama",
+    "links": {
+      "home": "Beranda",
+      "products": "Produk",
+      "custom": "Custom",
+      "about": "Tentang",
+      "contact": "Kontak"
+    }
+  },
+  "customOrder": {
+    "eyebrow": "Pesanan custom",
+    "title": "Ceritakan furnitur yang ingin Anda buat",
+    "description": "Bagikan beberapa detail, lalu kita lanjutkan percakapan di WhatsApp, baik untuk satu unit maupun satu kontainer penuh.",
+    "close": "Tutup",
+    "optional": "Opsional",
+    "fields": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Nama lengkap Anda"
+      },
+      "country": {
+        "label": "Negara",
+        "placeholder": "mis. Belanda"
+      },
+      "product": {
+        "label": "Jenis produk",
+        "placeholder": "Pilih jenis produk",
+        "options": {
+          "dining": "Meja & kursi makan",
+          "seating": "Sofa & kursi santai",
+          "bedroom": "Tempat tidur & kamar",
+          "storage": "Lemari & penyimpanan",
+          "outdoor": "Furnitur outdoor",
+          "other": "Lainnya"
+        }
+      },
+      "orderSize": {
+        "label": "Jumlah pesanan",
+        "placeholder": "Pilih jumlah pesanan",
+        "options": {
+          "retail": "Eceran: satu atau beberapa unit",
+          "batch": "Batch kecil: hingga 50 unit",
+          "wholesale": "Grosir: kontainer penuh"
+        }
+      },
+      "details": {
+        "label": "Detail",
+        "placeholder": "Desain, material, ukuran, atau finishing"
+      }
+    },
+    "submit": "Lanjutkan ke WhatsApp",
+    "note": "WhatsApp akan terbuka di tab baru dengan pesan yang siap dikirim.",
+    "whatsapp": {
+      "intro": "Halo, saya {name} dari {country}. Saya ingin melakukan pesanan custom.",
+      "product": "Produk: {value}",
+      "orderSize": "Jumlah pesanan: {value}",
+      "details": "Detail: {value}"
+    }
+  }
+}
