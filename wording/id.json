@@ -62,6 +62,172 @@
       }
     }
   },
+  "products": {
+    "title": "Produk Kami",
+    "intro": "Beberapa karya yang baru kami kerjakan, dibuat sesuai pesanan dan dikirim ke rumah serta ruang pamer di berbagai negara. Setiap desain bisa disesuaikan dengan material, ukuran, dan finishing pilihan Anda.",
+    "seeAll": "Lihat semua produk",
+    "sliderLabel": "Sorotan produk",
+    "previous": "Produk sebelumnya",
+    "next": "Produk berikutnya",
+    "shippedTo": "Dikirim ke",
+    "worldwide": "Dikirim ke seluruh dunia",
+    "countries": {
+      "de": {
+        "code": "DE",
+        "name": "Jerman"
+      },
+      "nl": {
+        "code": "NL",
+        "name": "Belanda"
+      },
+      "dk": {
+        "code": "DK",
+        "name": "Denmark"
+      },
+      "be": {
+        "code": "BE",
+        "name": "Belgia"
+      },
+      "fr": {
+        "code": "FR",
+        "name": "Prancis"
+      },
+      "gb": {
+        "code": "GB",
+        "name": "Inggris"
+      },
+      "us": {
+        "code": "US",
+        "name": "Amerika Serikat"
+      },
+      "ca": {
+        "code": "CA",
+        "name": "Kanada"
+      },
+      "au": {
+        "code": "AU",
+        "name": "Australia"
+      },
+      "sg": {
+        "code": "SG",
+        "name": "Singapura"
+      },
+      "jp": {
+        "code": "JP",
+        "name": "Jepang"
+      }
+    },
+    "items": {
+      "cafeChair": {
+        "name": "Kursi Kafe Jati",
+        "alt": "Kursi kafe kayu jati solid dengan sandaran melengkung di depan dinding krem yang hangat"
+      },
+      "loungeChair": {
+        "name": "Kursi Santai Rotan",
+        "alt": "Kursi santai rendah berangka kayu gelap dengan bantalan linen"
+      },
+      "diningTable": {
+        "name": "Meja Makan Oak",
+        "alt": "Meja makan kayu oak berkaki runcing dengan vas keramik berisi ranting"
+      },
+      "sideboard": {
+        "name": "Bufet Walnut",
+        "alt": "Bufet kayu walnut empat pintu di bawah bingkai lukisan"
+      },
+      "barStool": {
+        "name": "Kursi Bar Jati",
+        "alt": "Kursi bar kayu jati tinggi dengan dudukan bulat dan cincin pijakan kaki"
+      },
+      "bench": {
+        "name": "Bangku Kayu Ash",
+        "alt": "Bangku kayu ash terang dengan kain linen terlipat dalam cahaya jendela yang lembut"
+      },
+      "oakDiningChair": {
+        "name": "Kursi Makan Kayu Ek",
+        "alt": "Kursi makan kayu solid dengan sandaran melengkung di depan dinding krem hangat"
+      },
+      "mahoganyDiningTable": {
+        "name": "Meja Makan Mahoni",
+        "alt": "Meja makan kayu dengan kaki meruncing dan vas keramik berisi ranting"
+      },
+      "counterStool": {
+        "name": "Stool Konter Jati",
+        "alt": "Stool kayu tinggi dengan dudukan bundar dan cincin pijakan kaki"
+      },
+      "rattanArmchair": {
+        "name": "Kursi Lengan Rotan",
+        "alt": "Kursi lengan kayu buatan tangan dengan dudukan dan sandaran rotan anyam, di samping tanaman dalam pot"
+      },
+      "readingChair": {
+        "name": "Kursi Baca Linen",
+        "alt": "Seseorang bersantai membaca buku di kursi santai berangka kayu dengan bantalan linen"
+      },
+      "deepLoungeChair": {
+        "name": "Kursi Santai Rendah",
+        "alt": "Kursi santai rendah berangka kayu gelap dengan bantalan linen"
+      },
+      "bedEndBench": {
+        "name": "Bangku Ujung Ranjang",
+        "alt": "Bangku kayu terang dengan selimut linen terlipat di bawah cahaya jendela yang lembut"
+      },
+      "bedsideChest": {
+        "name": "Nakas Walnut",
+        "alt": "Lemari walnut empat pintu di bawah bingkai lukisan"
+      },
+      "bedroomArmchair": {
+        "name": "Kursi Kamar Rotan",
+        "alt": "Kursi lengan kayu dengan dudukan dan sandaran rotan anyam di samping tanaman dalam pot"
+      },
+      "mediaConsole": {
+        "name": "Konsol Media Walnut",
+        "alt": "Lemari walnut rendah empat pintu di bawah bingkai lukisan"
+      },
+      "oakCabinet": {
+        "name": "Lemari Simpan Kayu Ek",
+        "alt": "Lemari kayu empat pintu di bawah bingkai lukisan"
+      },
+      "gardenBench": {
+        "name": "Bangku Taman Jati",
+        "alt": "Bangku kayu terang dengan selimut linen terlipat"
+      },
+      "patioStool": {
+        "name": "Stool Teras Jati",
+        "alt": "Stool jati tinggi dengan dudukan bundar dan cincin pijakan kaki"
+      },
+      "patioLoungeChair": {
+        "name": "Kursi Santai Teras Jati",
+        "alt": "Kursi santai rendah berangka kayu gelap dengan bantalan"
+      }
+    }
+  },
+  "catalogue": {
+    "meta": {
+      "title": "Semua Produk",
+      "description": "Jelajahi furnitur Akra per kategori: ruang makan, tempat duduk, kamar tidur, penyimpanan, dan luar ruangan. Setiap produk dibuat sesuai pesanan dengan desain, material, dan finishing pilihan Anda, lalu dikirim ke seluruh dunia."
+    },
+    "eyebrow": "Katalog",
+    "title": "Produk Kami",
+    "intro": "Setiap produk di sini adalah titik awal. Pilih kategori, lalu ceritakan jenis kayu, ukuran, dan finishing yang Anda inginkan.",
+    "filterLabel": "Filter berdasarkan kategori",
+    "all": "Semua",
+    "categories": {
+      "dining": "Ruang Makan",
+      "seating": "Tempat Duduk",
+      "bedroom": "Kamar Tidur",
+      "storage": "Penyimpanan",
+      "outdoor": "Luar Ruangan"
+    },
+    "gridLabel": "Produk",
+    "results": "Produk ditampilkan: {count}",
+    "empty": {
+      "title": "Belum ada produk {category}",
+      "description": "Kami belum memotret produk untuk kategori ini, tetapi semua yang kami buat dikerjakan sesuai pesanan. Ceritakan apa yang Anda bayangkan, dan kami akan mewujudkannya.",
+      "showAll": "Lihat semua produk",
+      "contact": "Tanya lewat WhatsApp",
+      "contactAriaLabel": "Tanyakan furnitur {category} kepada AKRA lewat WhatsApp, terbuka di tab baru",
+      "message": "Halo AKRA, saya tertarik dengan furnitur {category}."
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, kembali ke beranda",

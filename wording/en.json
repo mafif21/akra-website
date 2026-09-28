@@ -62,6 +62,172 @@
       }
     }
   },
+  "products": {
+    "title": "Our Products",
+    "intro": "A few of the pieces we've built recently, made to order and shipped to homes and showrooms around the world. Every design can be adapted to your materials, dimensions, and finish.",
+    "seeAll": "See all products",
+    "sliderLabel": "Product highlights",
+    "previous": "Previous products",
+    "next": "Next products",
+    "shippedTo": "Shipped to",
+    "worldwide": "Shipped worldwide",
+    "countries": {
+      "de": {
+        "code": "DE",
+        "name": "Germany"
+      },
+      "nl": {
+        "code": "NL",
+        "name": "Netherlands"
+      },
+      "dk": {
+        "code": "DK",
+        "name": "Denmark"
+      },
+      "be": {
+        "code": "BE",
+        "name": "Belgium"
+      },
+      "fr": {
+        "code": "FR",
+        "name": "France"
+      },
+      "gb": {
+        "code": "GB",
+        "name": "United Kingdom"
+      },
+      "us": {
+        "code": "US",
+        "name": "United States"
+      },
+      "ca": {
+        "code": "CA",
+        "name": "Canada"
+      },
+      "au": {
+        "code": "AU",
+        "name": "Australia"
+      },
+      "sg": {
+        "code": "SG",
+        "name": "Singapore"
+      },
+      "jp": {
+        "code": "JP",
+        "name": "Japan"
+      }
+    },
+    "items": {
+      "cafeChair": {
+        "name": "Teak Cafe Chair",
+        "alt": "Solid teak cafe chair with a curved backrest against a warm cream wall"
+      },
+      "loungeChair": {
+        "name": "Rattan Lounge Chair",
+        "alt": "Low lounge chair with a dark wood frame and linen cushions"
+      },
+      "diningTable": {
+        "name": "Oak Dining Table",
+        "alt": "Oak dining table with tapered legs and a ceramic vase of branches"
+      },
+      "sideboard": {
+        "name": "Walnut Sideboard",
+        "alt": "Walnut sideboard with four doors below a framed print"
+      },
+      "barStool": {
+        "name": "Teak Bar Stool",
+        "alt": "Tall teak bar stool with a round seat and footrest ring"
+      },
+      "bench": {
+        "name": "Ash Bench",
+        "alt": "Light ash bench with a folded linen throw in soft window light"
+      },
+      "oakDiningChair": {
+        "name": "Oak Dining Chair",
+        "alt": "Solid wood dining chair with a curved backrest against a warm cream wall"
+      },
+      "mahoganyDiningTable": {
+        "name": "Mahogany Dining Table",
+        "alt": "Wooden dining table with tapered legs and a ceramic vase of branches"
+      },
+      "counterStool": {
+        "name": "Teak Counter Stool",
+        "alt": "Tall wooden stool with a round seat and footrest ring"
+      },
+      "rattanArmchair": {
+        "name": "Rattan Armchair",
+        "alt": "Handcrafted wooden armchair with a woven rattan seat and back, beside a potted plant"
+      },
+      "readingChair": {
+        "name": "Linen Reading Chair",
+        "alt": "Person relaxing with a book in a wood-framed lounge chair with linen cushions"
+      },
+      "deepLoungeChair": {
+        "name": "Low Lounge Chair",
+        "alt": "Low lounge chair with a dark wood frame and linen cushions"
+      },
+      "bedEndBench": {
+        "name": "Bed-End Bench",
+        "alt": "Light wood bench with a folded linen throw in soft window light"
+      },
+      "bedsideChest": {
+        "name": "Walnut Bedside Chest",
+        "alt": "Walnut cabinet with four doors below a framed print"
+      },
+      "bedroomArmchair": {
+        "name": "Rattan Bedroom Chair",
+        "alt": "Wooden armchair with a woven rattan seat and back beside a potted plant"
+      },
+      "mediaConsole": {
+        "name": "Walnut Media Console",
+        "alt": "Low walnut cabinet with four doors below a framed print"
+      },
+      "oakCabinet": {
+        "name": "Oak Storage Cabinet",
+        "alt": "Four-door wooden cabinet below a framed print"
+      },
+      "gardenBench": {
+        "name": "Teak Garden Bench",
+        "alt": "Light wood bench with a folded linen throw"
+      },
+      "patioStool": {
+        "name": "Teak Patio Stool",
+        "alt": "Tall teak stool with a round seat and footrest ring"
+      },
+      "patioLoungeChair": {
+        "name": "Teak Patio Lounge Chair",
+        "alt": "Low lounge chair with a dark wood frame and cushions"
+      }
+    }
+  },
+  "catalogue": {
+    "meta": {
+      "title": "All Products",
+      "description": "Browse Akra furniture by category: dining, seating, bedroom, storage and outdoor pieces, each made to order in your design, materials and finish, and shipped worldwide."
+    },
+    "eyebrow": "Catalogue",
+    "title": "Our Product",
+    "intro": "Every piece here is a starting point. Choose a category, then tell us the wood, dimensions and finish you have in mind.",
+    "filterLabel": "Filter by category",
+    "all": "All",
+    "categories": {
+      "dining": "Dining",
+      "seating": "Seating",
+      "bedroom": "Bedroom",
+      "storage": "Storage",
+      "outdoor": "Outdoor"
+    },
+    "gridLabel": "Products",
+    "results": "Products shown: {count}",
+    "empty": {
+      "title": "Nothing in {category} yet",
+      "description": "We haven't photographed pieces for this category yet, but everything we make is built to order. Tell us what you have in mind and we'll take it from there.",
+      "showAll": "See all products",
+      "contact": "Ask on WhatsApp",
+      "contactAriaLabel": "Ask AKRA about {category} furniture on WhatsApp, opens in a new tab",
+      "message": "Hello AKRA, I'm interested in {category} furniture."
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, back to home",
