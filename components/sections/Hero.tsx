@@ -6,8 +6,9 @@ import { useId, useRef, useState, type CSSProperties } from "react";
 import { CircleButton } from "@/components/ui/CircleButton";
 import { ChevronRightIcon } from "@/components/ui/Icons";
 import { formatIndex } from "@/lib/format";
-import { interpolate, type Wording } from "@/lib/i18n";
+import { interpolate, type Locale, type Wording } from "@/lib/i18n";
 import { captionSwap, crossfade, settleIn, staggerStep, wipeReveal } from "@/lib/motion";
+import { catalogueHref, categoryOf } from "@/lib/products";
 import barStool from "@/public/images/hero/bar-stool.jpg";
 import bench from "@/public/images/hero/bench.jpg";
 import cafeChair from "@/public/images/hero/cafe-chair.jpg";
@@ -21,21 +22,22 @@ type HeroItem = {
   /** Also the wording key: hero.items.<id>.name / .alt */
   id: keyof HeroWording["items"];
   image: StaticImageData;
-  href: string;
 };
 
 /**
  * Hero images, in display order. Every 3 items form a set; scrolling through
- * the hero swaps one set for the next. Placeholders: replace the files in
- * public/images/hero/ (and their alt text in wording) with real photos.
+ * the hero swaps one set for the next. Each links to the catalogue filtered to
+ * the category of the product with the same id (lib/products.ts).
+ * Placeholders: replace the files in public/images/hero/ (and their alt text in
+ * wording) with real photos.
  */
 const heroItems: readonly HeroItem[] = [
-  { id: "cafeChair", image: cafeChair, href: "#products" },
-  { id: "loungeChair", image: loungeChair, href: "#products" },
-  { id: "diningTable", image: diningTable, href: "#products" },
-  { id: "barStool", image: barStool, href: "#products" },
-  { id: "sideboard", image: sideboard, href: "#products" },
-  { id: "bench", image: bench, href: "#products" },
+  { id: "cafeChair", image: cafeChair },
+  { id: "loungeChair", image: loungeChair },
+  { id: "diningTable", image: diningTable },
+  { id: "barStool", image: barStool },
+  { id: "sideboard", image: sideboard },
+  { id: "bench", image: bench },
 ];
 
 const COLUMNS = 3;
@@ -51,7 +53,12 @@ const columns: Layer[][] = Array.from({ length: COLUMNS }, (_, column) =>
   }),
 );
 
-export function Hero({ wording }: { wording: HeroWording }) {
+type HeroProps = {
+  locale: Locale;
+  wording: HeroWording;
+};
+
+export function Hero({ locale, wording }: HeroProps) {
   const titleId = useId();
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeSet, setActiveSet] = useState(0);
@@ -64,7 +71,8 @@ export function Hero({ wording }: { wording: HeroWording }) {
   });
 
   return (
-    <section aria-labelledby={titleId}>
+    // `id` is the "home" target of the sidebar menu (lib/config.ts).
+    <section id="home" aria-labelledby={titleId} className="bg-bg">
       <h1 id={titleId} className="sr-only">
         {wording.title}
       </h1>
@@ -83,6 +91,7 @@ export function Hero({ wording }: { wording: HeroWording }) {
                 layers={layers}
                 activeSet={activeSet}
                 delay={column * staggerStep}
+                locale={locale}
                 wording={wording}
               />
             ))}
@@ -98,16 +107,17 @@ type HeroColumnProps = {
   activeSet: number;
   /** Stagger delay for this column's swap, in seconds. */
   delay: number;
+  locale: Locale;
   wording: HeroWording;
 };
 
-function HeroColumn({ layers, activeSet, delay, wording }: HeroColumnProps) {
+function HeroColumn({ layers, activeSet, delay, locale, wording }: HeroColumnProps) {
   const reduceMotion = useReducedMotion();
 
   return (
     <li className="group relative h-full w-4/5 shrink-0 snap-start overflow-hidden bg-surface md:w-auto">
       {/* Images: later sets stack on top and wipe in over earlier ones. */}
-      <div className="absolute inset-0 transition-transform duration-700 ease-soft md:group-hover:scale-102">
+      <div className="absolute inset-0 transition-transform duration-700 md:group-hover:scale-102">
         {layers.map((layer, set) => (
           <m.div
             key={layer.id}
@@ -157,7 +167,7 @@ function HeroColumn({ layers, activeSet, delay, wording }: HeroColumnProps) {
                 <span className="font-heading text-2xl md:text-3xl">{name}</span>
               </p>
               <CircleButton
-                href={layer.href}
+                href={catalogueHref(locale, categoryOf(layer.id))}
                 label={interpolate(wording.viewProduct, { name })}
                 className="focus-visible:outline-surface"
               >

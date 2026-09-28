@@ -19,7 +19,7 @@ export default async function HomePage() {
     <>
       <Navbar locale={locale} wording={{ navbar, customOrder }} />
       <main id={MAIN_CONTENT_ID} tabIndex={-1} className="outline-none">
-        <Hero wording={hero} />
+        <Hero locale={locale} wording={hero} />
         <About />
         <Products locale={locale} wording={products} />
       </main>
