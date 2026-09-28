@@ -228,6 +228,38 @@
       "message": "Halo AKRA, saya tertarik dengan furnitur {category}."
     }
   },
+  "customProcess": {
+    "title": "Custom",
+    "description": "Tidak ada yang dibuat massal di sini. Ceritakan yang Anda bayangkan, dan kami mengerjakannya dari sketsa pertama sampai ke depan pintu Anda — lima tahap, satu bengkel, sepenuhnya desain Anda.",
+    "stepsLabel": "Tahapan pesanan custom",
+    "steps": {
+      "planning": {
+        "label": "Perencanaan",
+        "caption": "Kami mulai dari percakapan: produk yang Anda bayangkan, jenis kayunya, finishing yang diinginkan, dan ruang tempatnya nanti.",
+        "alt": "Sofa berlapis kain warna terakota dengan bantalan tebal dan buku terbuka di atas dudukannya"
+      },
+      "design": {
+        "label": "Desain",
+        "caption": "Ide Anda menjadi sketsa, lalu gambar kerja berukuran, yang kami sempurnakan bersama sampai setiap proporsi dan sambungannya terasa pas.",
+        "alt": "Meja makan kayu bundar dengan vas keramik bergalur, dikelilingi kursi cetak berwarna pucat"
+      },
+      "production": {
+        "label": "Produksi",
+        "caption": "Perajin kami mengerjakannya dengan tangan di bengkel, bagian demi bagian, memeriksa setiap sambungan dan permukaan saat produk terbentuk.",
+        "alt": "Meja bar jati beserta kursinya di bengkel, dengan potongan kayu tersusun di sepanjang dinding"
+      },
+      "quality": {
+        "label": "Kontrol Kualitas",
+        "caption": "Sebelum dikemas, setiap produk diperiksa terhadap gambar kerja — sambungan, finishing, kadar air, dan perangkat kerasnya — dan yang belum sesuai standar kembali ke meja kerja.",
+        "alt": "Dua kursi bar kayu berangka putih ramping dalam cahaya sore yang rendah, serat setiap dudukannya tampak jelas"
+      },
+      "shipping": {
+        "label": "Pengiriman",
+        "caption": "Dikemas dengan hati-hati, dilengkapi dokumen ekspor, dan diantar sampai ke depan pintu Anda — satu unit maupun satu kontainer penuh.",
+        "alt": "Rak kayu ash terang berpanel bilah, tertata dengan buku dan teko keramik di ruang yang sudah jadi"
+      }
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, kembali ke beranda",

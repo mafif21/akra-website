@@ -228,6 +228,38 @@
       "message": "Hello AKRA, I'm interested in {category} furniture."
     }
   },
+  "customProcess": {
+    "title": "Custom",
+    "description": "Nothing here comes off a shelf. Tell us what you have in mind and we carry it from the first sketch to your door — five phases, one workshop, your design throughout.",
+    "stepsLabel": "How a custom order is made",
+    "steps": {
+      "planning": {
+        "label": "Planning",
+        "caption": "We start with a conversation: the piece you picture, the wood it should be cut from, the finish, and the room it will live in.",
+        "alt": "Rust-colored upholstered sofa with deep cushions and an open book resting on the seat"
+      },
+      "design": {
+        "label": "Design",
+        "caption": "Your idea becomes sketches, then measured drawings, refined together until every proportion and joint feels right.",
+        "alt": "Round wooden dining table with a fluted ceramic vase, surrounded by pale molded chairs"
+      },
+      "production": {
+        "label": "Production",
+        "caption": "Our artisans build it by hand in the workshop, part by part, checking each joint and surface as the piece comes together.",
+        "alt": "Teak bar table and stools standing in the workshop, timber offcuts stacked along the wall"
+      },
+      "quality": {
+        "label": "Quality control",
+        "caption": "Before anything is packed, each piece is checked against the drawings — joinery, finish, moisture and hardware — and whatever falls short goes back to the bench.",
+        "alt": "Two wooden bar stools on slim white frames in low afternoon light, the grain of each seat picked out in detail"
+      },
+      "shipping": {
+        "label": "Shipping",
+        "caption": "Packed with care, documented for export, and delivered to your door — whether that is one piece or a full container.",
+        "alt": "Light ash shelving unit with slatted panels, styled with books and a ceramic pitcher in a finished room"
+      }
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, back to home",

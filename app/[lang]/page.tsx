@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { About } from "@/components/sections/About";
+import { CustomProcess } from "@/components/sections/CustomProcess";
 import { Hero } from "@/components/sections/Hero";
 import { Navbar } from "@/components/sections/Navbar";
 import { Products } from "@/components/sections/Products";
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const locale = await getLocale();
-  const { navbar, customOrder, hero, products } = getWording(locale);
+  const { navbar, customOrder, hero, products, customProcess } = getWording(locale);
 
   return (
     <>
@@ -22,6 +23,7 @@ export default async function HomePage() {
         <Hero locale={locale} wording={hero} />
         <About />
         <Products locale={locale} wording={products} />
+        <CustomProcess wording={customProcess} />
       </main>
     </>
   );
