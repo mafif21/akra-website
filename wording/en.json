@@ -10,12 +10,27 @@
     "skipToContent": "Skip to content"
   },
   "about": {
-    "title": "About Us",
-    "description": "Akar Karya, the roots of craft. Born from one person's determination to build a furniture company from the ground up, every piece is made to order and crafted by hand by local Indonesian artisans. More than furniture — it's a way to bring artisanry into your home while growing our local economy.",
-    "purposeTitle": "Our Purpose",
-    "purpose": "We want to raise the standard of Indonesian furniture: better quality, at prices that stay fair and competitive in their class. Like roots that grow and bloom outward, we hope to reach homes all around the world.",
-    "showcaseAlt": "Handcrafted wooden armchair with a woven rattan seat and back, beside a potted plant",
-    "photoAlt": "Person relaxing with a book in a wood-framed lounge chair with linen cushions"
+    "badge": "Handmade in Jepara, Indonesia",
+    "title": "Handcrafted furniture that feels timeless",
+    "titleAccent": "timeless",
+    "intro": "Every piece is made to order in the wood, size and finish you choose. We build it by hand in our workshop and ship it to homes and showrooms around the world.",
+    "story": "Akra grew from Jepara, the town the world sources its furniture from. Not handed down, but built by choice — akar karya, roots and craft. Those roots now reach homes and showrooms worldwide.",
+    "cta": {
+      "label": "Book a consultation",
+      "ariaLabel": "Book a consultation with AKRA on WhatsApp, opens in a new tab",
+      "message": "Hello AKRA, I'd like to book a consultation about a piece of furniture."
+    },
+    "images": {
+      "wide": {
+        "alt": "Walnut sideboard with two cabinet doors against a grey wall, a framed print on top and a turned wooden stool beside it"
+      },
+      "left": {
+        "alt": "Two solid wood stools with slim metal legs casting long shadows on a timber floor"
+      },
+      "right": {
+        "alt": "Light wooden shelving unit with slatted panels, holding books and a ceramic vase"
+      }
+    }
   },
   "hero": {
     "title": "Custom furniture, crafted to order and shipped worldwide",

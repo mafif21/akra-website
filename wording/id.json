@@ -10,12 +10,27 @@
     "skipToContent": "Langsung ke konten"
   },
   "about": {
-    "title": "Tentang Kami",
-    "description": "AKRA adalah singkatan dari Akar Karya, “akar dari sebuah karya.” Semuanya berawal dari tekad satu orang untuk membangun perusahaan furnitur dari nol, tanpa privilese warisan dan tanpa bisnis keluarga sebagai sandaran. Setiap produk dibuat sesuai pesanan dan sepenuhnya bisa disesuaikan, jadi desain apa pun yang Anda bayangkan akan kami sambut. Semuanya dikerjakan oleh perajin lokal Indonesia, sebagian besar dengan tangan. Bagi kami, ini lebih dari sekadar furnitur: ini cara untuk mendekatkan karya perajin kepada Anda, sekaligus ikut menumbuhkan ekonomi lokal.",
-    "purposeTitle": "Tujuan Kami",
-    "purpose": "Kami ingin mengangkat standar furnitur Indonesia: kualitas yang lebih baik, dengan harga yang tetap adil dan bersaing di kelasnya. Seperti akar yang tumbuh dan mekar ke segala arah, kami berharap bisa menjangkau rumah-rumah di seluruh dunia.",
-    "showcaseAlt": "Kursi kayu buatan tangan dengan dudukan dan sandaran rotan anyam, di samping tanaman dalam pot",
-    "photoAlt": "Seseorang bersantai membaca buku di kursi santai berangka kayu dengan bantalan linen"
+    "badge": "Buatan tangan di Jepara, Indonesia",
+    "title": "Furnitur buatan tangan yang tak lekang waktu",
+    "titleAccent": "tak lekang waktu",
+    "intro": "Setiap karya dibuat sesuai pesanan, dengan kayu, ukuran, dan finishing pilihan Anda. Kami membuatnya dengan tangan di workshop kami dan mengirimkannya ke rumah dan showroom di seluruh dunia.",
+    "story": "Akra tumbuh dari Jepara, tempat dunia memesan furniturnya. Bukan warisan, tapi dibangun atas pilihan sendiri — akar karya, akar dan karya. Akar itu kini sampai ke rumah dan showroom di berbagai negara.",
+    "cta": {
+      "label": "Jadwalkan konsultasi",
+      "ariaLabel": "Jadwalkan konsultasi dengan AKRA lewat WhatsApp, terbuka di tab baru",
+      "message": "Halo AKRA, saya ingin menjadwalkan konsultasi tentang furnitur."
+    },
+    "images": {
+      "wide": {
+        "alt": "Bufet kayu walnut dengan dua pintu kabinet di depan dinding abu-abu, lukisan berbingkai di atasnya, dan bangku kayu bubut di sampingnya"
+      },
+      "left": {
+        "alt": "Dua bangku kayu solid berkaki logam ramping dengan bayangan panjang di atas lantai kayu"
+      },
+      "right": {
+        "alt": "Rak kayu terang berpanel bilah, berisi buku dan vas keramik"
+      }
+    }
   },
   "hero": {
     "title": "Furnitur custom, dibuat sesuai pesanan dan dikirim ke seluruh dunia",
