@@ -4,6 +4,7 @@ import { CustomProcess } from "@/components/sections/CustomProcess";
 import { Hero } from "@/components/sections/Hero";
 import { Navbar } from "@/components/sections/Navbar";
 import { Products } from "@/components/sections/Products";
+import { Slogan } from "@/components/sections/Slogan";
 import { MAIN_CONTENT_ID } from "@/lib/config";
 import { getAlternates, getWording } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/server";
@@ -24,6 +25,7 @@ export default async function HomePage() {
         <About />
         <Products locale={locale} wording={products} />
         <CustomProcess wording={customProcess} />
+        <Slogan />
       </main>
     </>
   );

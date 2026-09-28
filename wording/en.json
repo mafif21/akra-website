@@ -260,6 +260,26 @@
       }
     }
   },
+  "slogan": {
+    "title": "Our promise",
+    "statement": "AKRA offers premium furniture, blending timeless design, exceptional quality, and unmatched comfort for every space.",
+    "highlights": [
+      "premium furniture,",
+      "blending timeless design,",
+      "exceptional quality,",
+      "unmatched comfort"
+    ]
+  },
+  "social": {
+    "label": "AKRA on social media",
+    "links": {
+      "instagram": "AKRA on Instagram, opens in a new tab",
+      "facebook": "AKRA on Facebook, opens in a new tab",
+      "x": "AKRA on X, opens in a new tab",
+      "youtube": "AKRA on YouTube, opens in a new tab",
+      "tiktok": "AKRA on TikTok, opens in a new tab"
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, back to home",

@@ -37,3 +37,18 @@ export const navItems = [
   href: string;
   sectionId: string;
 }>;
+
+/**
+ * Social profiles, in the order they appear. Labels come from wording
+ * `social.links.<key>`. Placeholders: replace the URLs with the real profiles.
+ */
+export const socialLinks = [
+  { key: "instagram", href: "https://instagram.com/" },
+  { key: "facebook", href: "https://facebook.com/" },
+  { key: "x", href: "https://x.com/" },
+  { key: "youtube", href: "https://youtube.com/" },
+  { key: "tiktok", href: "https://tiktok.com/" },
+] as const satisfies ReadonlyArray<{
+  key: keyof Wording["social"]["links"];
+  href: string;
+}>;

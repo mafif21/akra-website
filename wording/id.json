@@ -260,6 +260,26 @@
       }
     }
   },
+  "slogan": {
+    "title": "Janji kami",
+    "statement": "AKRA menghadirkan furnitur premium, memadukan desain abadi, kualitas istimewa, dan kenyamanan tiada tara untuk setiap ruang.",
+    "highlights": [
+      "furnitur premium,",
+      "memadukan desain abadi,",
+      "kualitas istimewa,",
+      "kenyamanan tiada tara"
+    ]
+  },
+  "social": {
+    "label": "AKRA di media sosial",
+    "links": {
+      "instagram": "AKRA di Instagram, membuka tab baru",
+      "facebook": "AKRA di Facebook, membuka tab baru",
+      "x": "AKRA di X, membuka tab baru",
+      "youtube": "AKRA di YouTube, membuka tab baru",
+      "tiktok": "AKRA di TikTok, membuka tab baru"
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, kembali ke beranda",
