@@ -17,7 +17,7 @@ export function Field({ label, htmlFor, optionalLabel, className, children }: Fi
     <div className={cn("flex flex-col gap-2", className)}>
       <label
         htmlFor={htmlFor}
-        className="flex items-baseline justify-between gap-3 text-xs font-medium tracking-widest text-text uppercase"
+        className="flex items-baseline justify-between gap-3 label-caps font-medium text-text"
       >
         {label}
         {optionalLabel && (
@@ -33,7 +33,7 @@ export function Field({ label, htmlFor, optionalLabel, className, children }: Fi
 
 const controlClasses = cn(
   "w-full rounded border border-line bg-bg px-4 py-3 text-base text-text",
-  "placeholder:text-muted transition-colors duration-500 ease-soft",
+  "placeholder:text-muted transition-colors",
   "hover:border-muted focus:border-primary focus-visible:outline-1 focus-visible:outline-offset-0",
 );
 

@@ -18,6 +18,8 @@ type DrawerProps = {
   title: ReactNode;
   /** Accessible name of the close button, from wording. */
   closeLabel: string;
+  /** Optional control shown beside the title, such as the language switch. */
+  headerAction?: ReactNode;
   side?: DrawerSide;
   className?: string;
   children: ReactNode;
@@ -32,6 +34,7 @@ export function Drawer({
   onClose,
   title,
   closeLabel,
+  headerAction,
   side = "right",
   className,
   children,
@@ -53,9 +56,12 @@ export function Drawer({
     >
       {/* Same height as the navbar so the close button lines up with the menu button. */}
       <div className="flex h-header shrink-0 items-center justify-between gap-4 border-b border-line pr-2 pl-gutter md:pr-4">
-        <h2 id={titleId} className="font-body text-xs font-medium tracking-widest text-muted uppercase">
-          {title}
-        </h2>
+        <div className="flex items-center gap-4">
+          <h2 id={titleId} className="label-caps font-body font-medium text-muted">
+            {title}
+          </h2>
+          {headerAction}
+        </div>
         <Button variant="ghost" size="icon" onClick={onClose} aria-label={closeLabel}>
           <CloseIcon className="size-5" />
         </Button>

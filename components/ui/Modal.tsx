@@ -53,7 +53,7 @@ export function Modal({
     >
       <div className="flex items-center justify-between gap-4 pt-2 pr-2 pl-6 sm:pl-10">
         {eyebrow ? (
-          <p className="text-xs tracking-widest text-muted uppercase">{eyebrow}</p>
+          <p className="label-caps text-muted">{eyebrow}</p>
         ) : (
           <span />
         )}
@@ -67,7 +67,7 @@ export function Modal({
           {title}
         </h2>
         {description && (
-          <p id={descriptionId} className="mt-4 text-muted">
+          <p id={descriptionId} className="mt-4 text-accent">
             {description}
           </p>
         )}

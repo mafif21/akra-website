@@ -17,6 +17,18 @@ export const durations = {
   slow: 0.8,
 } as const;
 
+/**
+ * Spring for scroll-linked values (useSpring), so they trail the wheel by a
+ * beat instead of tracking it exactly — see components/ui/ScrollUnderlineText.
+ */
+export const scrollSpring = { stiffness: 50, damping: 20, restDelta: 0.001 } as const;
+
+/**
+ * Lenis lerp for eased scrolling (components/ui/SmoothScroll, ScrollArea): each
+ * frame closes this share of the gap to the wheel's target. Lower trails further.
+ */
+export const scrollLerp = 0.085;
+
 /** Vertical offset for slide-up reveals, in px. */
 const revealOffset = 24;
 
@@ -63,18 +75,28 @@ export function staggerContainer(stagger = 0.12, delayChildren = 0): Variants {
   };
 }
 
-/** Spread onto an `m.*` element to play its variants once when scrolled into view. */
+/**
+ * Spread onto an `m.*` element to play its variants once when scrolled into view.
+ * Triggers as the element's top passes 85% of the viewport height rather than
+ * once a share of it is visible, so a tall block (the catalogue grid on a phone)
+ * appears as soon as it enters, not after a screen or two of blank space.
+ */
 export const reveal = {
   initial: "hidden",
   whileInView: "visible",
-  viewport: { once: true, amount: 0.2 },
+  viewport: { once: true, margin: "0px 0px -15% 0px" },
 } as const;
 
-/** Subtle hover scale for images and cards, e.g. <m.div {...hoverScale} />. */
-export const hoverScale = {
-  whileHover: { scale: 1.02 },
-  transition: { duration: durations.fast, ease: easeOut },
-} as const;
+/**
+ * Background layer that sweeps across a control (see components/ui/StepCard).
+ * The element sets `transformOrigin` itself: "left" while it is the active one,
+ * "right" once it is not, so the fill enters from one edge and leaves by the
+ * other. Flipping the origin is invisible because it only happens at scaleX 0 or 1.
+ */
+export const sweepFill: Variants = {
+  hidden: { scaleX: 0, transition: { duration: durations.fast, ease: easeOut } },
+  visible: { scaleX: 1, transition: { duration: durations.fast, ease: easeOut } },
+};
 
 // ── Delayed variants (scroll reveals, Hero image swaps) ─────────────────────
 // These take a delay in seconds through `custom`, so neighbouring elements can
@@ -97,21 +119,32 @@ export const revealUp: Variants = {
 const clipHidden = "inset(100% 0% 0% 0%)";
 const clipShown = "inset(0% 0% 0% 0%)";
 
-// wipeReveal and crossfade set both clipPath and opacity in every state, so
-// switching between them (e.g. once reduced motion is detected after hydration)
-// never leaves a layer stuck clipped or transparent.
+// wipeReveal and crossfade rest on exactly the same values: hidden is clipped
+// AND transparent, visible is unclipped AND opaque. Only the transitions differ.
+// That matters because the choice between them depends on the reduced-motion
+// setting, which the server can't know: with identical resting values the HTML
+// rendered on the server matches whichever one the browser picks, so there is
+// no hydration mismatch, and switching between them never leaves a layer stuck.
 
 /** Image layer revealed bottom-up (and covered top-down) with a clip-path wipe. */
 export const wipeReveal: Variants = {
   hidden: (delay) => ({
     clipPath: clipHidden,
-    opacity: 1,
-    transition: withDelay(delay, { duration: durations.slow, ease: easeOut }),
+    opacity: 0,
+    transition: {
+      ...withDelay(delay, { duration: durations.slow, ease: easeOut }),
+      // Turns transparent only once fully covered, so the wipe itself is all that shows.
+      opacity: withDelay(delay, { duration: 0 }, durations.slow),
+    },
   }),
   visible: (delay) => ({
     clipPath: clipShown,
     opacity: 1,
-    transition: withDelay(delay, { duration: durations.slow, ease: easeOut }),
+    transition: {
+      ...withDelay(delay, { duration: durations.slow, ease: easeOut }),
+      // Opaque the moment the wipe starts.
+      opacity: withDelay(delay, { duration: 0 }),
+    },
   }),
 };
 

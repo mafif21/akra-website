@@ -17,11 +17,11 @@ type CircleButtonProps = {
 export function CircleButton({ label, href, onClick, className, children }: CircleButtonProps) {
   const classes = cn(
     "group/circle inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full bg-surface text-text md:size-12",
-    "transition duration-500 ease-soft hover:scale-102 hover:bg-bg",
+    "transition hover:scale-102 hover:bg-bg",
     className,
   );
   const icon = (
-    <span className="transition-transform duration-500 ease-soft group-hover/circle:translate-x-0.5">
+    <span className="transition-transform group-hover/circle:translate-x-0.5">
       {children}
     </span>
   );

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { MotionProvider } from "@/components/ui/MotionProvider";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { cn } from "@/lib/cn";
-import { fontBody, fontHeading } from "@/lib/fonts";
+import { fontAccent, fontBody, fontHeading } from "@/lib/fonts";
 import { createTranslator, locales, ogLocales } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n/server";
 import { MAIN_CONTENT_ID, siteConfig } from "@/lib/config";
@@ -49,7 +50,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   const t = createTranslator(locale);
 
   return (
-    <html lang={locale} className={cn(fontHeading.variable, fontBody.variable)}>
+    <html lang={locale} className={cn(fontHeading.variable, fontBody.variable, fontAccent.variable)}>
       <body>
         <a
           href={`#${MAIN_CONTENT_ID}`}
@@ -57,6 +58,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
         >
           {t("a11y.skipToContent")}
         </a>
+        <SmoothScroll />
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

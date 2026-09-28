@@ -1,40 +1,58 @@
 @import "tailwindcss";
 
 /*
- * Design tokens (DESIGN.md). Declared in @theme so each token is both a CSS
- * variable and a Tailwind utility: bg-bg, bg-surface, text-muted, border-line,
- * py-section, gap-block, px-gutter, rounded, ease-soft, font-heading, font-body.
- * Tailwind's default color palette is cleared so only brand colors exist.
+ * Design tokens (DESIGN.md), the single source of truth for the site. Declared
+ * in @theme so each token is both a CSS variable and a Tailwind utility: bg-bg,
+ * bg-surface, text-muted, border-line, py-section, gap-stack, px-gutter, rounded,
+ * ease-soft, font-heading, font-body. Tailwind's default color palette is cleared
+ * so only brand colors exist; spacing, radius and type sizes otherwise follow
+ * Tailwind's 4px-based scale (gap-4, mt-6, text-xs …).
  */
 @theme {
   --color-*: initial;
-  --color-bg:      #F5F1EA;
-  --color-surface: #FBF8F3;
-  --color-text:    #2A2521;
-  --color-muted:   #6B5F52;
-  --color-primary: #8A5A3B;
-  --color-accent:  #4A5D43;
-  --color-line:    #E0D8CC;
+  --color-bg:       #FFFFFF;  /* main background */
+  --color-surface:  #F2F2F2;  /* surface, divider, subtle bg */
+  --color-text:     #040404;  /* primary text (near-black) */
+  --color-accent:   #404040;  /* secondary emphasis, hover state */
+  --color-muted:    #6B6B6B;  /* tertiary text, metadata — 5.3:1 on bg, 4.8:1 on surface (AA for small text) */
+  --color-line:     #CCCCCC;  /* border, disabled */
+  --color-primary:  #040404;  /* primary action (black) */
 
   /* Spacing scale */
   --spacing-section: clamp(100px, 12vw, 160px);
-  --spacing-block:   clamp(40px, 6vw, 80px);
+  /* Gap between a section header and its content. Not named "block": Tailwind
+     would then read the display class inline-block as inline-size: this token. */
+  --spacing-stack:   clamp(40px, 6vw, 80px);
   --spacing-gutter:  clamp(20px, 4vw, 48px);  /* page side padding */
+  --spacing-catalogue: 56.25rem;              /* catalogue grid viewport (max-h-catalogue), about three rows */
 
-  /* Radius */
+  /* Body copy (DESIGN.md: 16–18px, line-height 1.6+) — text-body */
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+
+  /* Radius: small for controls and product photos, soft for editorial collages */
   --radius: 3px;
+  --radius-soft: 1rem;
 
   /* Easing for CSS transitions (same curve as easeOut in lib/motion.ts) */
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
+  /* Every `transition-*` utility defaults to this: hover and state changes read
+     smooth and slow without repeating duration-500 ease-soft on each element. */
+  --default-transition-duration: 500ms;
+  --default-transition-timing-function: var(--ease-soft);
+
   /* Layout: navbar with a truly centered brand (grid-cols-nav) */
   --grid-template-columns-nav: minmax(0, 1fr) auto minmax(0, 1fr);
+  /* Layout: text beside images, 45 / 55 (grid-cols-split) */
+  --grid-template-columns-split: minmax(0, 9fr) minmax(0, 11fr);
 }
 
 /* Typography: next/font variables from lib/fonts.ts */
 @theme inline {
-  --font-heading: var(--font-fraunces);
-  --font-body:    var(--font-satoshi);
+  --font-heading: var(--font-jost);
+  --font-body:    var(--font-ubuntu);
+  --font-accent:  var(--font-instrument-serif);
 
   /* Layout heights driven by runtime variables (h-header, top-header, h-hero, h-hero-track) */
   --spacing-header:     var(--header-height);
@@ -44,20 +62,64 @@
 }
 
 :root {
-  --border: 1px solid var(--color-line);
   --header-height: 4rem;
-  --hero-height: clamp(28rem, 72svh, 50rem);
+  /* The hero panel fills the screen below the sticky navbar, so the first thing
+     a visitor sees is nothing but photography. svh (not dvh) keeps that height
+     steady instead of resizing as a mobile browser's toolbars slide away. */
+  --hero-height: calc(100svh - var(--header-height));
+  /* Where an anchor target comes to rest by default: clear of the sticky header,
+     its 1px hairline, and a little air. Sections that need their own landing
+     point override it per section — see the rules below. */
+  --scroll-offset: calc(var(--header-height) + 1px + 2rem);
 }
 
 @media (width >= 48rem) {
-  :root { --header-height: 5rem; }
+  :root {
+    --header-height: 5rem;
+  }
 }
 
 /* Base (layered so utilities can override it) */
 @layer base {
-  html {
+  html:not(.lenis) {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-height); /* anchors land below the sticky navbar */
+  }
+
+  /* Anchor targets (#home, #about, #products, #custom) stop below the sticky
+     navbar instead of sliding under it. scroll-margin-top is the one mechanism
+     every path honours: a native hash jump, Next's client-side scroll, Lenis's
+     eased scrollTo and lib/scroll.ts all read it, so every route lands in the
+     same place. --scroll-offset is the default; a section takes its own landing
+     point by setting --section-scroll-offset on itself, below. */
+  section[id] {
+    scroll-margin-top: var(--section-scroll-offset, var(--scroll-offset));
+  }
+
+  /* Per-section landing points. Each of the four starts at the global default;
+     each is free to move on its own, since the sections differ in layout and
+     height. Values may be anything scroll-margin-top accepts — a length, or
+     calc() on top of --scroll-offset — and a media query around one block
+     changes that section at a breakpoint only. Nothing in JS reads these names:
+     lib/scroll.ts measures whatever scroll-margin-top computes to. */
+
+  /* Scroll landing offset for the sidebar navigation — Home (the hero). */
+  #home {
+    --section-scroll-offset: var(--scroll-offset);
+  }
+
+  /* Scroll landing offset for the sidebar navigation — About. */
+  #about {
+    --section-scroll-offset: 2rem;
+  }
+
+  /* Scroll landing offset for the sidebar navigation — Products. */
+  #products {
+    --section-scroll-offset: 2rem;
+  }
+
+  /* Scroll landing offset for the sidebar navigation — Custom process. */
+  #custom {
+    --section-scroll-offset: 2rem;
   }
 
   :focus-visible {
@@ -69,8 +131,8 @@
     background: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -79,15 +141,49 @@
     line-height: 1.1;
     font-weight: 500;
   }
+}
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.03;
-    z-index: 9999;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Section title (About, Products, Custom, Catalogue). It steps down again at lg,
+   where it shares the row with other columns instead of spanning the page. */
+@utility heading-section {
+  @apply font-heading text-5xl font-light tracking-tight uppercase sm:text-6xl lg:text-5xl;
+}
+
+/* Inverted band for the page rhythm (DESIGN.md → Section rhythm): Custom and the
+   footer. It re-points the colour tokens for its subtree, so every utility inside
+   (bg-primary, text-muted, border-line …) flips without a dark: variant. Only the
+   light palette's values, swapped, plus one lighter grey for small text: muted
+   #A3A3A3 is 8.1:1 on #040404, accent #CCCCCC 12.8:1. */
+@utility theme-dark {
+  --color-bg:      #040404;
+  --color-surface: #040404; /* text on a primary (white) fill stays near-black */
+  --color-text:    #FFFFFF;
+  --color-accent:  #CCCCCC;
+  --color-muted:   #A3A3A3;
+  --color-line:    #404040;
+  --color-primary: #FFFFFF;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Small uppercase label: buttons, eyebrows, form labels, card metadata. Weight
+   is left to the element: medium for controls, regular for metadata. */
+@utility label-caps {
+  @apply text-xs tracking-widest uppercase;
+}
+
+/* Stretches a small inline control's hit area to at least 44px tall (WCAG target
+   size) with an invisible ::after, so the layout and the underline stay put. */
+@utility hit-area {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: -0.5rem;
+    top: 50%;
+    height: max(100%, 2.75rem);
+    translate: 0 -50%;
   }
 }
 
@@ -98,6 +194,12 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Vertical scrollers that keep a scrollbar as a cue: a hairline thumb, no track. */
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
 }
 
 /* A <select> still on its empty placeholder option (styled like input placeholders). */
@@ -118,4 +220,44 @@
   :where(.group):focus-visible & {
     background-size: 100% 1px;
   }
+}
+
+/* Scroll-driven counterpart of link-underline. `--lit` runs 0 → 1 as the phrase
+   is read (components/ui/ScrollUnderlineText.tsx animates it with Framer Motion):
+   the 1px line draws left to right and the text settles from muted to full. */
+@utility draw-underline {
+  --lit: 0;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: calc(var(--lit) * 100%) 1px;
+  padding-bottom: 0.12em; /* drops the line clear of the descenders */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone; /* a wrapped phrase underlines every line, not one long one */
+  color: color-mix(in oklab, var(--color-muted), var(--color-text) calc(var(--lit) * 100%));
+
+  /* Reduced motion: the finished phrase, never drawn. !important beats the
+     inline --lit that ScrollUnderlineText keeps animating with scroll. */
+  @media (prefers-reduced-motion: reduce) {
+    --lit: 1 !important;
+  }
+}
+
+/* Lenis smooth scroll (components/ui/SmoothScroll.tsx). It sets these classes on
+   <html> itself; without them the browser's own scrolling fights the eased one. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

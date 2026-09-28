@@ -1,25 +1,37 @@
-import localFont from "next/font/local";
+import { Instrument_Serif, Jost, Ubuntu } from "next/font/google";
 
-// Self-hosted variable fonts from public/fonts (see DESIGN.md → Typography).
-// The CSS variables are mapped to --font-heading / --font-body in app/globals.css.
+// Google fonts loaded and self-hosted at build time by next/font (see DESIGN.md
+// → Typography). The CSS variables are mapped to --font-heading / --font-body in
+// app/globals.css.
 
-/** Fraunces: soft, old-style serif for headings. Latin subset, weights 100–900. */
-export const fontHeading = localFont({
-  src: "../public/fonts/Fraunces-Variable.woff2",
-  variable: "--font-fraunces",
-  weight: "100 900",
-  style: "normal",
-  display: "swap",
-  fallback: ["Georgia", "serif"],
-  adjustFontFallback: "Times New Roman",
-});
-
-/** Satoshi: warm, low-contrast sans for body copy and UI. Weights 300–900. */
-export const fontBody = localFont({
-  src: "../public/fonts/Satoshi-Variable.woff2",
-  variable: "--font-satoshi",
-  weight: "300 900",
-  style: "normal",
+/** Jost: geometric, modern sans for headings, hero, brand and nav. Variable 300–700. */
+export const fontHeading = Jost({
+  subsets: ["latin"],
+  variable: "--font-jost",
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
+});
+
+/** Ubuntu: warm, readable sans for body copy, buttons, labels, forms and captions. */
+export const fontBody = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-ubuntu",
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
+});
+
+/**
+ * Instrument Serif italic: the accent face for a single word inside a Jost
+ * heading (components/ui/AccentText). Italic only, one weight, and not
+ * preloaded, since it is never above the fold.
+ */
+export const fontAccent = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument-serif",
+  display: "swap",
+  preload: false,
+  fallback: ["Georgia", "serif"],
 });

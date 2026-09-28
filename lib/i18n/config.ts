@@ -25,6 +25,17 @@ export function localizedPath(locale: Locale, path = "/"): string {
   return normalized === "/" ? `/${locale}` : `/${locale}${normalized}`;
 }
 
+/**
+ * Inverse of localizedPath: drops a locale prefix so the same page can be
+ * rebuilt in another locale. "/id/about" → "/about", "/id" → "/", and a path
+ * that carries no prefix (the default locale) comes back untouched.
+ */
+export function stripLocale(path: string): string {
+  const [, first = "", ...rest] = path.split("/");
+  if (!isLocale(first)) return path;
+  return `/${rest.join("/")}`;
+}
+
 /** `alternates` metadata (canonical + hreflang) for a page available in every locale. */
 export function getAlternates(locale: Locale, path = "/") {
   const languages: Record<string, string> = Object.fromEntries(
