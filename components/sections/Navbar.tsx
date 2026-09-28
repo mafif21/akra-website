@@ -1,18 +1,22 @@
 "use client";
 
 import { m } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { useId, useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent, type MouseEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import { Drawer } from "@/components/ui/Drawer";
 import { Field, Input, Select, Textarea } from "@/components/ui/Field";
+import { LocaleSwitch } from "@/components/ui/LocaleSwitch";
 import { ArrowRightIcon, MenuIcon } from "@/components/ui/Icons";
 import { Modal } from "@/components/ui/Modal";
 import { navItems, siteConfig } from "@/lib/config";
 import { formatIndex } from "@/lib/format";
 import { interpolate, localizedPath, type Locale, type Wording } from "@/lib/i18n";
 import { fadeUp, staggerContainer } from "@/lib/motion";
+import { scrollToSection } from "@/lib/scroll";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import logoMark from "@/public/images/logo/logo-mark.png";
 
 export type NavbarWording = Pick<Wording, "navbar" | "customOrder">;
 
@@ -30,6 +34,18 @@ export function Navbar({ locale, wording }: NavbarProps) {
   const closeMenu = () => setMenuOpen(false);
   const homeHref = localizedPath(locale);
 
+  /**
+   * Menu items scroll their section to the centre of the viewport themselves
+   * (lib/scroll.ts) rather than letting the browser or Lenis park it at the top.
+   * A modified click, or a section this page doesn't have, keeps the link's own
+   * navigation instead.
+   */
+  function handleNavClick(event: MouseEvent<HTMLAnchorElement>, sectionId: string) {
+    closeMenu();
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (scrollToSection(sectionId)) event.preventDefault();
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg">
       <div className="grid h-header grid-cols-nav items-center gap-2 px-gutter sm:gap-3">
@@ -40,19 +56,23 @@ export function Navbar({ locale, wording }: NavbarProps) {
             size="sm"
             aria-haspopup="dialog"
             onClick={() => setOrderOpen(true)}
-            className="max-sm:border-0 max-sm:px-0 max-sm:tracking-wider max-sm:underline max-sm:decoration-1 max-sm:underline-offset-4 max-sm:hover:bg-transparent max-sm:hover:text-primary"
+            className="max-sm:border-0 max-sm:px-0 max-sm:tracking-wider max-sm:underline max-sm:decoration-1 max-sm:underline-offset-4 max-sm:hover:bg-transparent max-sm:hover:text-accent"
           >
             {navbar.customOrder}
           </Button>
         </div>
 
-        {/* Brand: swap the text for a next/image logo later. */}
-        <Link
-          href={homeHref}
-          aria-label={navbar.homeLabel}
-          className="font-heading text-xl font-medium tracking-widest text-text sm:text-2xl md:text-3xl"
-        >
-          {navbar.brand}
+        {/* Brand mark. The link carries the accessible name, so the image stays
+            out of the accessibility tree (alt="") instead of announcing twice. */}
+        <Link href={homeHref} aria-label={navbar.homeLabel} className="block py-1">
+          <Image
+            src={logoMark}
+            alt=""
+            width={47}
+            height={44}
+            priority
+            className="h-9 w-auto md:h-11"
+          />
         </Link>
 
         <div className="justify-self-end">
@@ -87,20 +107,28 @@ export function Navbar({ locale, wording }: NavbarProps) {
         onClose={closeMenu}
         title={navbar.menu}
         closeLabel={navbar.closeMenu}
+        headerAction={
+          <LocaleSwitch
+            locale={locale}
+            wording={navbar.language}
+            className="border-l border-line pl-4"
+          />
+        }
       >
         <nav aria-label={navbar.navLabel} className="px-gutter py-6">
           <m.ul variants={staggerContainer(0.08, 0.25)} initial="hidden" animate="visible">
             {navItems.map((item, index) => (
               <m.li key={item.key} variants={fadeUp} className="border-b border-line">
                 <Link
-                  href={item.href === "/" ? homeHref : item.href}
-                  onClick={closeMenu}
+                  // Anchors hang off the home page, so they still work from other routes.
+                  href={item.href === "/" ? homeHref : `${homeHref}${item.href}`}
+                  onClick={(event) => handleNavClick(event, item.sectionId)}
                   className="group flex items-baseline gap-5 py-5"
                 >
                   <span className="text-xs text-muted tabular-nums">
                     {formatIndex(index)}
                   </span>
-                  <span className="link-underline font-heading text-3xl transition-colors duration-500 ease-soft group-hover:text-primary md:text-4xl">
+                  <span className="link-underline font-heading text-3xl transition-colors group-hover:text-accent md:text-4xl">
                     {navbar.links[item.key]}
                   </span>
                 </Link>
@@ -211,7 +239,7 @@ function CustomOrderForm({
       <div className="flex flex-col gap-4 pt-2 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" className="group w-full sm:w-auto" aria-describedby={`${id}-note`}>
           {wording.submit}
-          <ArrowRightIcon className="size-4 transition-transform duration-500 ease-soft group-hover:translate-x-1" />
+          <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
         </Button>
         <p id={`${id}-note`} className="text-sm text-muted sm:max-w-56">
           {wording.note}

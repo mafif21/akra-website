@@ -21,14 +21,19 @@ export const siteConfig = {
 /** Target of the "skip to content" link. */
 export const MAIN_CONTENT_ID = "main-content";
 
-/** Primary navigation. Labels come from wording `navbar.links.<key>`. */
+/**
+ * Primary navigation. Labels come from wording `navbar.links.<key>`.
+ * `href` stays a real link so the item still navigates from another route;
+ * `sectionId` is the section it scrolls to when that section is on the page
+ * (components/sections/Navbar.tsx → lib/scroll.ts).
+ */
 export const navItems = [
-  { key: "home", href: "/" },
-  { key: "about", href: "#about" },
-  { key: "products", href: "#products" },
-  { key: "custom", href: "#custom" },
-  { key: "contact", href: "#contact" },
+  { key: "home", href: "/", sectionId: "home" },
+  { key: "about", href: "#about", sectionId: "about" },
+  { key: "products", href: "#products", sectionId: "products" },
+  { key: "custom", href: "#custom", sectionId: "custom" },
 ] as const satisfies ReadonlyArray<{
   key: keyof Wording["navbar"]["links"];
   href: string;
+  sectionId: string;
 }>;

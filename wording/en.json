@@ -59,8 +59,14 @@
       "home": "Home",
       "products": "Products",
       "custom": "Custom",
-      "about": "About",
-      "contact": "Contact"
+      "about": "About"
+    },
+    "language": {
+      "label": "Language",
+      "codes": {
+        "en": "EN",
+        "id": "ID"
+      }
     }
   },
   "customOrder": {

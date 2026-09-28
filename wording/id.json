@@ -59,8 +59,14 @@
       "home": "Beranda",
       "products": "Produk",
       "custom": "Custom",
-      "about": "Tentang",
-      "contact": "Kontak"
+      "about": "Tentang"
+    },
+    "language": {
+      "label": "Bahasa",
+      "codes": {
+        "en": "EN",
+        "id": "ID"
+      }
     }
   },
   "customOrder": {
