@@ -52,3 +52,15 @@ export const socialLinks = [
   key: keyof Wording["social"]["links"];
   href: string;
 }>;
+
+/**
+ * Footer legal pages. Labels come from wording `footer.legal.<key>`.
+ * Placeholders: the routes still have to be built.
+ */
+export const legalLinks = [
+  { key: "terms", href: "/terms" },
+  { key: "privacy", href: "/privacy" },
+] as const satisfies ReadonlyArray<{
+  key: keyof Wording["footer"]["legal"];
+  href: string;
+}>;

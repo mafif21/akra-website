@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { About } from "@/components/sections/About";
 import { CustomProcess } from "@/components/sections/CustomProcess";
+import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Navbar } from "@/components/sections/Navbar";
 import { Products } from "@/components/sections/Products";
@@ -27,6 +28,7 @@ export default async function HomePage() {
         <CustomProcess wording={customProcess} />
         <Slogan />
       </main>
+      <Footer />
     </>
   );
 }

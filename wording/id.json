@@ -280,6 +280,15 @@
       "tiktok": "AKRA di TikTok, membuka tab baru"
     }
   },
+  "footer": {
+    "brand": "AKRA",
+    "copyright": "© AKRA. Seluruh hak cipta dilindungi.",
+    "legalLabel": "Legal",
+    "legal": {
+      "terms": "Syarat & Ketentuan",
+      "privacy": "Kebijakan Privasi"
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, kembali ke beranda",

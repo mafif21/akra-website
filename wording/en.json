@@ -280,6 +280,15 @@
       "tiktok": "AKRA on TikTok, opens in a new tab"
     }
   },
+  "footer": {
+    "brand": "AKRA",
+    "copyright": "© AKRA. All Rights Reserved.",
+    "legalLabel": "Legal",
+    "legal": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy"
+    }
+  },
   "navbar": {
     "brand": "AKRA",
     "homeLabel": "Akra, back to home",
